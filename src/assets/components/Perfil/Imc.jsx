@@ -28,7 +28,7 @@ const imc = () => {
       return(
             <form>
                 <input type="number" placeholder="Digite sua altura" onChange={evento => setAltura(parseInt(evento.target.value))}/>
-                <input type="number" placeholder="Digite sua peso" onChange={evento => setPeso(parseInt(evento.target.value))} />
+                <input type="number" placeholder="Digite seu peso" onChange={evento => setPeso(parseInt(evento.target.value))} />
                 {calculaIMC()}
             </form>
            )
