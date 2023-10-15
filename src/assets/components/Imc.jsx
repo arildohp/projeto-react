@@ -34,5 +34,5 @@ const imc = () => {
            )
         }
    
-        export default Imc
+        export default imc
     
