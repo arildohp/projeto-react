@@ -1,38 +1,24 @@
-import {useState} from "react"
+import React, { useState } from "react";
 
+const index = () => {
+    const [weight, setweight] = useState();
+    const [height, setheight] = useState();
+    const [result, setresult] = useState();
 
-const imc = () => {
-    let [Altura, setAltura] = useState(0);
-    let [Peso, setPeso] = useState(0);
-    
+    const calculaImc =() => {
+        const imc = weight / (height * height);
+        const formattedImc = imc.toFixed(2);
+        setresult(+formattedImc);
+    };
+    return (
+        <div>
+            <input type="number" value={weight} onChange={(e)=> setweight(+e.target.value)}  placeholder="Digite seu peso (kg)"/>
+            <input type="number" value={height} onChange={(e)=> setheight(+e.target.value)}  placeholder="Digite sua altura (m)"/>
+            <button onClick={calculaImc}>Calcular</button>
 
-    const calculaIMC = ()=> {
-        const multiplicacao = Altura * Altura;
-        const imc = Peso / multiplicacao;
+            <h1>{result}</h1>
+        </div>
+    )
+}
 
-        if (imc <= 18.4) {
-            return (
-                <p>Você esta com seu peso abaixo do ideal.</p>
-            )
-        } if (imc >= 18.5  <= 24.8) {
-            return (
-                <p> parabens você esta com seu peso ideal.</p>
-            )
-        } if (imc => 24.9){
-            return (
-            <p>Você esta com seu peso acima do ideal.</p>
-            )
-        }
-
-    }
-      return(
-            <form>
-                <input type="number" placeholder="Digite sua altura" onChange={evento => setAltura(parseInt(evento.target.value))}/>
-                <input type="number" placeholder="Digite seu peso" onChange={evento => setPeso(parseInt(evento.target.value))} />
-                {calculaIMC()}
-            </form>
-           )
-        }
-   
-        export default imc
-    
+export default Imc;
